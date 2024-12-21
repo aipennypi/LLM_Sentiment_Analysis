@@ -21,7 +21,7 @@ Integrates VADER's compound sentiment scores as additional features for the SVC 
 <h2>Data</h2>
 The project uses a dataset named Tweets.csv, which contains:<br>
 you can download from https://www.kaggle.com/datasets/yasserh/twitter-tweets-sentiment-dataset
-
+<br>
 text: The tweet or text data to be analyzed.
 sentiment: The ground truth sentiment labels (e.g., positive, negative, neutral).
 Ensure the dataset is in CSV format and structured correctly before running the code.
