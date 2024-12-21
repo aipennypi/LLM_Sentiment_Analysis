@@ -19,7 +19,7 @@ Combined Model:
 
 Integrates VADER's compound sentiment scores as additional features for the SVC model.
 <h2>Data</h2>
-The project uses a dataset named Tweets.csv, which contains:
+The project uses a dataset named Tweets.csv, which contains:<br>
 you can download from https://www.kaggle.com/datasets/yasserh/twitter-tweets-sentiment-dataset
 
 text: The tweet or text data to be analyzed.
