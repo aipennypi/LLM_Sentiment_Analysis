@@ -84,7 +84,41 @@ y_SVC_comp_pred = model_compound.predict(X_test_combined)
 
 # 3. Vader's rule-based sentiment analysis
 y_vad_pred = X_test.apply(assign_sentiment)
+# 4. GPT sentiment analysis
+import openai
+apikey = os.environ.get('OPENAI_API_KEY')
+# retrieve sentiment responds from chatGPT
+def classify_sentiment(text):
+    prompt = f"""
+    Perform the following actions on the given text delimited by \
+    triple backticks:
+    - analyse and report the sentiment in strictly a single word \
+    out of [positive, negative, neutral].
 
+    Text to analyse: ```{text}```
+    """
+    client = OpenAI(api_key = apikey)
+    response =  client.chat.completions.create(
+        model="gpt-3.5-turbo",
+        messages=[
+            {"role": "system", "content": "You are a sentiment analysis assistant."},
+            #{"role": "user", "content": f"Classify the sentiment of this text as positive, negative, or neutral: '{text}'"}
+            #{"role": "user", "content": f"Classify the sentiment of this text as positive, negative, or neutral:'{text}'only show sentiment"}
+            {"role": "user", "content": prompt}
+
+        ]
+    )
+    sentiment = response.choices[0].message.content.strip().lower()
+    if all(keyword not in sentiment for keyword in ['positive', 'negative', 'neutral']):      
+      return 'neutral'
+    if sentiment.find('positive') != -1:
+        sentiments = 'positive'
+    elif sentiment.find('negative') != -1:
+        sentiments = 'negative'
+    else:
+        sentiments = 'neutral'
+    return sentiments
+y_GPT_pred = X.test.apply(classify_sentiment)
 # Evaluate SVC with only TF-IDF vectors
 print("SVC Classification Report:")
 print(classification_report(y_test, y_SVC_pred))
@@ -100,3 +134,8 @@ print(y_SVC_comp_pred)
 print("Vader Classification Report:")
 print(classification_report(y_test, y_vad_pred))
 print("Accuracy Score:", accuracy_score(y_test, y_vad_pred))
+
+# Evaluate GPT's sentiment analysis
+print("GPT Classification Report:")
+print(classification_report(y_test, y_GPT_pred))
+print("Accuracy Score:", accuracy_score(y_test, y_GPT_pred))
