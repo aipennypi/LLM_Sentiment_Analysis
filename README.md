@@ -1,4 +1,4 @@
-<h1>Sentiment Analysis Using SVC and Vader</h1>
+<h1>Sentiment Analysis Using SVC,Vader and ChatGPT</h1>
 This project demonstrates a sentiment analysis pipeline that combines machine learning (Support Vector Classification with TF-IDF) and rule-based sentiment analysis (VADER). The main objective is to evaluate the performance of different approaches and compare their accuracy in classifying sentiments from textual data.
 
 <h2>Features</h2>
