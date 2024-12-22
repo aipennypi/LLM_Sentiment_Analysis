@@ -102,8 +102,6 @@ def classify_sentiment(text):
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a sentiment analysis assistant."},
-            #{"role": "user", "content": f"Classify the sentiment of this text as positive, negative, or neutral: '{text}'"}
-            #{"role": "user", "content": f"Classify the sentiment of this text as positive, negative, or neutral:'{text}'only show sentiment"}
             {"role": "user", "content": prompt}
 
         ]
