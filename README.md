@@ -81,5 +81,5 @@ python sentiment_analysis.py
 This project demonstrates that combining machine learning and rule-based approaches can yield better sentiment analysis results than using either method independently.
 <h2>References</h2>
 inspire from the below information.
-<a href="https://medium.com/@rslavanyageetha/vader-a-comprehensive-guide-to-sentiment-analysis-in-python-c4f1868b0d2e">Vader</a>
+<a href="https://medium.com/@rslavanyageetha/vader-a-comprehensive-guide-to-sentiment-analysis-in-python-c4f1868b0d2e">Vader</a><br>
 <a href="https://shilpa-leo.medium.com/effective-prompt-engineering-guide-to-scale-chatgpt-api-for-sentiment-analysis-on-multiple-survey-c6d3dc924e74">ChatGPT API</a>
