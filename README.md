@@ -18,6 +18,8 @@ Evaluates the rule-based sentiment analysis independently.
 Combined Model:
 
 Integrates VADER's compound sentiment scores as additional features for the SVC model.
+ 
+ Provides a Python-based sentiment analysis tool leveraging OpenAI's GPT-3.5 model. It uses the GPT model to classify the sentiment of tweets as positive, negative, or neutral. The implementation is tailored for datasets with a text column for tweet content and a sentiment column for ground truth labels.
 <h2>Data</h2>
 The project uses a dataset named Tweets.csv, which contains:<br>
 you can download from https://www.kaggle.com/datasets/yasserh/twitter-tweets-sentiment-dataset
@@ -36,14 +38,20 @@ Use TF-IDF (Term Frequency-Inverse Document Frequency) to convert the text data 
 <h3>3. VADER Sentiment Scores</h3>
 Compute VADER's compound sentiment scores for each text entry.
 Use these scores both independently (for evaluation) and as additional features for the SVC model.
-<h3>4. Training Models</h3>
+<h3>5. GPT</h3>
+Use GPT API to get the sentiment classification
+<h3>5. Training Models</h3>
 Train an SVC model using only TF-IDF vectors.
 Train another SVC model using a combination of TF-IDF vectors and VADER sentiment scores.
-<h3>5. Evaluation</h3>
+
+
+
+<h3>6. Evaluation</h3>
 <h2>Evaluate the performance of:</h2>
-SVC with only TF-IDF.
-SVC with TF-IDF + VADER scores.
-VADER sentiment analysis (rule-based).
+1. SVC with only TF-IDF.
+2. SVC with TF-IDF + VADER scores.
+3. VADER sentiment analysis (rule-based).
+4. GPT's sentiment analysis
 Generate classification reports and accuracy scores for each approach.
 
 <h2>Example Output</h2>
